@@ -18,7 +18,7 @@ CREATE TABLE USERS(
    
 
 
-CREATE TABLE Permissions (
+CREATE TABLE PERMISSIONS (
     id INT (10) primary key NOT null AUTO_INCREMENT,
     name VARCHAR (20) NOT NULL,
     UNIQUE(name)
@@ -41,21 +41,12 @@ CREATE TABLE Permissions (
     FOREIGN KEY (id_company) REFERENCES Companys(id)
 );
 
-CREATE TABLE Scores(
+CREATE TABLE SCORES(
 	id_user int not null,
     id_buy int ,
     points float (6) not null unique,
      FOREIGN KEY (id_user) REFERENCES USERS(id),
      FOREIGN KEY (id_buy) REFERENCES SERVICE_STATIONS(id_buy)
-);
-
- CREATE TABLE CITY(
-    id int  not NULL primary key AUTO_INCREMENT,
-    nameCity VARCHAR (20) unique key not NULL,
-    id_service_station INT,
-    id_country INT,
-    cp INT (5) unique key not NULL 
-    
 );
 
  CREATE TABLE Citys(
@@ -85,14 +76,14 @@ CREATE TABLE FUEL(
     stock float(10)not null
 );
 
-CREATE TABLE Roles(
+CREATE TABLE ROLES(
     id_user int not null primary key,
     FOREIGN KEY (id_user) REFERENCES USERS(id),
     name VARCHAR(20) NOT NULL
     );
    
  
-CREATE TABLE History(
+CREATE TABLE HISTORYS(
    id_user int not null primary KEY,
    id_service_station int not null,
     FOREIGN KEY (id_service_station) REFERENCES SERVICE_STATIONS(id),
